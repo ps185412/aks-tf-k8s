@@ -1,4 +1,4 @@
-# Terraform for DCS
+# Terraform For Creating Kubernetes Cluster
 
 ## Description
 Scripts to bootstrap the Azure environment with K8S setup. We use  Azure blob storage to store the state file. The Azure File Vault Secret is use to store the sensitive information needed for terraform to bootstrap. The Vault is created in `pre-init` terraform scripts of this repository`. 
