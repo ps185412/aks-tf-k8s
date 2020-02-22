@@ -4,7 +4,7 @@
 Scripts to bootstrap the Azure environment with K8S setup. We use  Azure blob storage to store the state file. The Azure File Vault Secret is use to store the sensitive information needed for terraform to bootstrap. The Vault is created in `pre-init` terraform scripts of this repository`. 
 
 Few things to be taken care before running the post-init terraform scripts. Since there are few placeholders which needs to be filled. below are details.
-1. The secret names needed for tf service principal, azure AD are to be defined in the common-vault created in `pre-init` terraform scripts and hence the names are as per your own wish. Precisely with the `fetch-from-vault.tf` the secret name is not given hence you may get  read prompt from terraform. Please fill these values.
+1. The secret names needed for tf service principal, azure AD are to be defined in the common-vault created in `pre-init` terraform scripts and hence the names are as per your own wish. Precisely with the `fetch-from-vault.tf` the secret name is not given hence you may get  read prompt from terraform. Please fill these values and also make sure that the values are environment dependent so that if anyone creates a new `env` folder with `cluster.tfvars` old values are not overwritten.
 
 ## Pre-requisite
 For Terraform to boostrap it need below details.
@@ -25,6 +25,7 @@ Separate Modules are written for reusability of the Terraform scripts instead of
 6. `storage-account` for setting up storage account for various scenarios. This is an optional module.
 7. `secrets` for creating cluster specific secrets
 
+
 ## Usage
 1. Set the Terraform Backend Azure Storage Account Access Key. \
 ``export ARM_ACCESS_KEY=$(az keyvault secret show --name <tfArmAccessKey> --vault-name <common-vault-name> --query value -o tsv``
@@ -36,6 +37,11 @@ Separate Modules are written for reusability of the Terraform scripts instead of
 ``$ terraform apply out.plan``
 6. To clean the complete infrastructure. \
 ``$ terraform destroy -var-file="env/global/global.tfvars" -var-file="env/premium/cluster.tfvars"``
+
+### Special Usage for WAF. 
+The application gateway can be configured with the certificates. I am currently using the pfx file stored in `./init-scripts/files/certs/cert.pfx`and the file is being picked up. However this is not a proper solution and I am waiting for the fix mentioned here. https://github.com/terraform-providers/terraform-provider-azurerm/issues/3935 . Hence meanwhile please provide a proper certificate in this location and store the password in the common vault.
+
+
 
 ### Kubectl Usage for RBAC and Dashboard accessing.
 Kubectl command needs to verify the authenticity of user before any api calls. For the first time or whenever the RBAC cluster is deployed. just `` kubectl get pods -n kube-system``
