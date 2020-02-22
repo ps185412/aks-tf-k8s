@@ -22,23 +22,23 @@ variable "keyvault_access_ad_group_id" {
 
 
 variable "keyvault_tf_client_app_object_id" {
-    description = "Object ID of the client Service Principle"
+    description = "Object ID of the client Service Principal"
 }
 
 variable "keyvault_tf_client_app_application_id" {
-    description = "Id for the Terraform Application linked to a Service Principle"
+    description = "Id for the Terraform Application linked to a Service Principal"
 }
 
 variable "keyvault_ad_client_app_application_id" {
-    description = "Id for the Server Application linked to a Service Principle"
+    description = "Id for the Server Application linked to a Service Principal"
 }
 
 variable "keyvault_ad_server_app_application_id" {
-    description = "Id for the Server Application linked to a Service Principle"
+    description = "Id for the Server Application linked to a Service Principal"
 }
 
 variable "keyvault_ad_server_app_application_secret" {
-    description = "Secret for the Server Application linked to a Service Principle"
+    description = "Secret for the Server Application linked to a Service Principal"
 }
 
 variable "keyvault_aks_storage_account_access_key" {

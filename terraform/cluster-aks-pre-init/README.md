@@ -21,7 +21,7 @@ This section deals with the pre initialisation of the cluster. That is, For a pr
 ## Usage
 1. Set the Terraform Backend Azure Storage Account Access Key. \
 You can either directly use the ARM access key and paste it or use it from a private existing vault if you have configured one. I would suggest to have the vault pre-configured for this.!
-``$ export ARM_ACCESS_KEY=$(az keyvault secret show --name <tf-armAccessKey> --vault-name <vault-name> --query value -o tsv)``
+``$ export ARM_ACCESS_KEY=$(az keyvault secret show --name <tf-armAccessKey> --vault-name <pre-init-vault-name> --query value -o tsv)``
 2. Initialize terraform \
 ``$ terraform init -backend-config="env/global/backend.tfvars" -var-file="env/global/common.tfvars"``
 3. Terraform list modules \

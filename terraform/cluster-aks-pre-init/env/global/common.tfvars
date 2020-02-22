@@ -10,6 +10,7 @@ prefix                  = "myorg-project-tf"
 ad_group_name           = "myorg_project_group"
 
 # For terraform creating the cluster
+# Replace this with your TF client APP name
 tf_client_app_name      = "terraform-k8s"
 
 # For Kubernetes using RBAC 
