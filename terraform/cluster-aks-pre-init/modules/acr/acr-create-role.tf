@@ -9,6 +9,7 @@ data "azuread_service_principal" "tf-service-principal" {
 
 data "azurerm_client_config" "cli" {}
 
+# Create ACR Pull Role which is replaced with imagePullSecret feature.
 resource "azurerm_role_assignment" "role" {
   scope                = "${data.azurerm_container_registry.acr.id}"
   role_definition_name = "acrpull"

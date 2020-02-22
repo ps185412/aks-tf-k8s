@@ -3,8 +3,8 @@
 # convention hence place add your own value.
 #-------------------------------------------------------
 data "azurerm_key_vault" "from_common_vault" {
-  #name                = "prefix-common-vault"
-  #resource_group_name = "prefix-common-rg"
+  #name                = "prefix-common-vault" # Replace with your own Values
+  #resource_group_name = "prefix-common-rg" # Replace with your own Values
 }
 
 data "azurerm_key_vault_secret" "tf_arm_access_key" {

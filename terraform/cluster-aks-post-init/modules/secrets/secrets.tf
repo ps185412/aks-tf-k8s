@@ -2,7 +2,7 @@ data "azurerm_client_config" "keyvault" {}
 
 #!!!! This display_name should the same as defined in the pre-init.(There we created  )
 data "azuread_service_principal" "tf-service-principal" {
-  display_name = "terraform-k8s"
+  display_name = "terraform-k8s" # Replace with your own Values
 }
 
 resource "azurerm_key_vault" "keyvault" {
