@@ -1,0 +1,17 @@
+**/*.DS_Store
+**/helm/*.tgz
+**/*.terraform
+**/TF_VAR_ENV
+**/tf_env
+**/*.out
+**/*.plan
+**/**/*.lock
+**/charts/
+/.project
+.idea/
+
+# Visual Studio Code
+*.code-workspace
+
+# Build
+**/Makefile
