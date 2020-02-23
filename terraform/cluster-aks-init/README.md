@@ -1,7 +1,7 @@
-# Terraform for Pre Initialisation of Cluster.
+# Terraform for  Initialisation of Cluster.
 
 ## Description
-This section deals with the pre initialisation of the cluster. That is, For a proper RBAC enabled Kubernetes cluster  with Terraform, it needs, an `Azure service principal` with the role contributor, a storage to store the state of the terraform (Azure storage account). I have used an approach to create a common azure key vault for storing the secrets which can be later used during cluster creation. The module `secret` creates a scaffolding of the secrets  needed for running the `post-init` phase of the cluster. Modules are created accordingly which will do this! Modules section has more details.
+This section deals with the initialisation of the cluster. That is, For a proper RBAC enabled Kubernetes cluster  with Terraform, it needs, an `Azure service principal` with the role contributor, a storage to store the state of the terraform (Azure storage account). I have used an approach to create a common azure key vault for storing the secrets which can be later used during cluster creation. The module `secret` creates a scaffolding of the secrets  needed for running the `post-init` phase of the cluster. Modules are created accordingly which will do this! Modules section has more details.
 
 ## Prerequisites
 1. Azure Service Principal for terraform (terraform-k8s).
