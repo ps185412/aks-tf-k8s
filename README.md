@@ -3,7 +3,7 @@
 ## Description
 The Functionality is divided into 2 parts.
 
-### Pre-Initialisation of Cluster
+### Initialisation of Cluster
 This includes basically the things needed before we start creating the cluster.  Configures few components such as ACR(Azure Container Registry), Creating a azure storage account for Terraform state for Post-Initialisation and creates a common azure vault for secret storage. However to execute this you have to first create a service principal for terraform via `az cli` and create a storage account for this part of terraform state. For these 2 things you can have scripts as part of your automation process. It is **strictly recommended** to be run this via admin rights and keep it restricted and confidential.
    After this phase is created you can expect  it creates ACR, storage account for terraform state and azure key vault to store the secrets( Service Principal etc).
 

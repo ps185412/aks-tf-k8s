@@ -1,14 +1,14 @@
 # Terraform For Creating Kubernetes Cluster
 
 ## Description
-Scripts to bootstrap the Azure environment with K8S setup. We use  Azure blob storage to store the state file. The Azure File Vault Secret is use to store the sensitive information needed for terraform to bootstrap. The Vault is created in `pre-init` terraform scripts of this repository`. 
+Scripts to bootstrap the Azure environment with K8S setup. We use  Azure blob storage to store the state file. The Azure File Vault Secret is use to store the sensitive information needed for terraform to bootstrap. The Vault is created in `init` terraform scripts of this repository`. 
 
 Few things to be taken care before running the post-init terraform scripts. Since there are few placeholders which needs to be filled. below are details.
-1. The secret names needed for tf service principal, azure AD are to be defined in the common-vault created in `pre-init` terraform scripts and hence the names are as per your own wish. Precisely with the `fetch-from-vault.tf` the secret name is not given hence you may get  read prompt from terraform. Please fill these values and also make sure that the values are environment dependent so that if anyone creates a new `env` folder with `cluster.tfvars` old values are not overwritten.
+1. The secret names needed for tf service principal, azure AD are to be defined in the common-vault created in `init` terraform scripts and hence the names are as per your own wish. Precisely with the `fetch-from-vault.tf` the secret name is not given hence you may get  read prompt from terraform. Please fill these values and also make sure that the values are environment dependent so that if anyone creates a new `env` folder with `cluster.tfvars` old values are not overwritten.
 
 ## Pre-requisite
 For Terraform to boostrap it need below details.
-Note: It is recommended to store below details in the common-vault created during `pre-init` phase
+Note: It is recommended to store below details in the common-vault created during `init` phase
 1. Azure Service Principal (Client ID) and Password(Client Secret) 
 2. ARM ACCESS KEY to store the terraform state.
 3. Azure Active Directory Credentials for maintaing RBAC for K8s Cluster on Azure

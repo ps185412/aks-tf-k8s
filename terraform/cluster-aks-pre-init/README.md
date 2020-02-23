@@ -5,7 +5,7 @@ This section deals with the pre initialisation of the cluster. That is, For a pr
 
 ## Prerequisites
 1. Azure Service Principal for terraform (terraform-k8s).
-2. Storage account to store the terraform state for `pre-init` configurations.
+2. Storage account to store the terraform state for `init` configurations.
 3. Azure Active Directory Credentials for maintaing RBAC for K8s Cluster on Azure (AKSAADClient and AKSAADServer)
 4. Azure Active Directory Group for enabling RBAC.
 
@@ -21,7 +21,7 @@ This section deals with the pre initialisation of the cluster. That is, For a pr
 ## Usage
 1. Set the Terraform Backend Azure Storage Account Access Key. \
 You can either directly use the ARM access key and paste it or use it from a private existing vault if you have configured one. I would suggest to have the vault pre-configured for this.!
-``$ export ARM_ACCESS_KEY=$(az keyvault secret show --name <tf-armAccessKey> --vault-name <pre-init-vault-name> --query value -o tsv)``
+``$ export ARM_ACCESS_KEY=$(az keyvault secret show --name <tf-armAccessKey> --vault-name <init-vault-name> --query value -o tsv)``
 2. Initialize terraform \
 ``$ terraform init -backend-config="env/global/backend.tfvars" -var-file="env/global/common.tfvars"``
 3. Terraform list modules \
