@@ -1,7 +1,6 @@
 terraform {
   backend "azurerm" {}
 }
-
 provider "azurerm" {
   version = ">=1.28.0"
 }
@@ -14,9 +13,9 @@ data "azurerm_client_config" "azurerm_provider" {}
 # --------------------------------------------------------------------------------
 # Get terraform service principal
 # --------------------------------------------------------------------------------
-data "azuread_service_principal" "tf_client_app" {
-    display_name = "${var.tf_client_app_name}"
-}
+# data "azuread_service_principal" "tf_client_app" {
+#    display_name = "${var.tf_client_app_name}"
+# }
 
 # --------------------------------------------------------------------------------
 # Get K8s RBAC client app service principal
@@ -28,16 +27,16 @@ data "azuread_application" "ad_client_app" {
 # --------------------------------------------------------------------------------
 # Get K8s RBAC server app service principal
 # --------------------------------------------------------------------------------
-data "azuread_application" "ad_server_app" {
-    name = "${var.ad_server_app_name}"
-}
+#data "azuread_application" "ad_server_app" {
+#    name = "${var.ad_server_app_name}"
+#}
 
 # --------------------------------------------------------------------------------
 # Get AAD Group
 # --------------------------------------------------------------------------------
-data "azuread_group" "ad_group_name" {
-    name = "${var.ad_group_name}"
-}
+#data "azuread_group" "ad_group_name" {
+#    name = "${var.ad_group_name}"
+#}
 
 # --------------------------------------------------------------------------------
 # Module common-resource-group
